@@ -1,5 +1,12 @@
-<h1>{{$title}}</h1>
 
+@extends('template')
+@section('titulo', "Prov")
+
+@section('header')
+    @parent()
+@stop
+
+@section('content')
 @if(empty($films))
     <FONT COLOR="red">No se ha encontrado ninguna película</FONT>
 @else
@@ -27,3 +34,8 @@
     </table>
 </div>
 @endif
+@stop
+
+@section('footer')
+    @parent()
+@stop
