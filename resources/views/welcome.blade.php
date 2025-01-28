@@ -1,36 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movies List</title>
+@extends('template')
+@section('titulo', "Lista Peliculas")
 
-    <!-- Add Bootstrap CSS link -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+@section('header')
+    @parent()
+@stop
 
-    <!-- Include any additional stylesheets or scripts here -->
-</head>
+@section('content')
+    <div class="col">
+        <h1 class="mt-4">Lista de Peliculas</h1>
+        <ul>
+            <li><a href=/filmout/oldFilms>Pelis antiguas</a></li>
+            <li><a href=/filmout/newFilms>Pelis nuevas</a></li>
+            <li><a href=/filmout/films>Pelis</a></li>
+            <li><a href="/filmout/filmsGenre">Pelis Filtradas por Genero</a></li>
+            <li><a href="/filmout/filmsYear">Pelis Filtradas por Año</a></li>
+            <li><a href="/filmout/sortFilms">Pelis Ordenadas de manera descendente (Por Año)</a></li>
+            <li><a href="/filmout/countFilms">Contador de numero total de Peliculas</a></li>
+        </ul>
+    </div>
+    <div class="col">
+        <h1 class="mt-4">Añadir Pelicula</h1>
+        <form action="{{route('createFilm')}}" method="POST" enctype="multipart/form-data">
+            @csrf
+            Nombre: <input type="text" name="nombre"> <br> <br>
+            Año: <input type="number" name="año"> <br> <br>
+            Genero: <input type="text" name="genero"> <br> <br>
+            Pais: <input type="text" name="pais"> <br> <br>
+            Duracion: <input type="number" name="duracion"> <br> <br>
+            Imagen URL: <input type="url" name="url"> <br> <br>
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+@stop
 
-<body class="container">
-
-    <h1 class="mt-4">Lista de Peliculas</h1>
-    <ul>
-        <li><a href=/filmout/oldFilms>Pelis antiguas</a></li>
-        <li><a href=/filmout/newFilms>Pelis nuevas</a></li>
-        <li><a href=/filmout/films>Pelis</a></li>
-        <li><a href="/filmout/filmsGenre">Pelis Filtradas por Genero</a></li>
-        <li><a href="/filmout/filmsYear">Pelis Filtradas por Año</a></li>
-        <li><a href="/filmout/sortFilms">Pelis Ordenadas de manera descendente (Por Año)</a></li>
-        <li><a href="/filmout/countFilms">Contador de numero total de Peliculas</a></li>
-    </ul>
-    <!-- Add Bootstrap JS and Popper.js (required for Bootstrap) -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-    <!-- Include any additional HTML or Blade directives here -->
-
-</body>
-
-</html>
+@section('footer')
+    @parent()
+@stop
