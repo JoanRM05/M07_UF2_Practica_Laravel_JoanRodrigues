@@ -30,6 +30,12 @@ Route::middleware('year')->group(function() {
         Route::get('sortFilms', [FilmController::class, "sortFilmsByYear"])->name('sortFilmsByYear');
         Route::get('countFilms', [FilmController::class, "countAllFilms"])->name('countAllFilms');
         
+       
+    });
+});
+
+Route::middleware('url')->group(function() {
+    Route::group(['prefix' => 'filmin'], function() {
         Route::post('createFilm', [FilmController::class, "createFilm"])->name('createFilm');
     });
 });

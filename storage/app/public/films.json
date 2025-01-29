@@ -38,5 +38,37 @@
         "country": "Greece",
         "duration": 160,
         "img_url": "https://pics.filmaffinity.com/As_bestas-275688233-large.jpg"
+    },
+    {
+        "name": "Pepe",
+        "year": 1222,
+        "genre": "comedia",
+        "country": "Espana",
+        "duration": 122,
+        "img_url": "https://pics.filmaffinity.com/kureyon_shin_chan_crayon_shin_chan-803709078-large.jpg"
+    },
+    {
+        "name": "Polete",
+        "year": 1222,
+        "genre": "comedia",
+        "country": "Espana",
+        "duration": 122,
+        "img_url": "https://pics.filmaffinity.com/kureyon_shin_chan_crayon_shin_chan-803709078-large.jpg"
+    },
+    {
+        "name": "pepitoclavo",
+        "year": 123,
+        "genre": "comedia",
+        "country": "espana",
+        "duration": 122,
+        "img_url": "https://pics.filmaffinity.com/kureyon_shin_chan_crayon_shin_chan-803709078-large.jpg"
+    },
+    {
+        "name": "dsfsfdsfg",
+        "year": 1233,
+        "genre": "comedia",
+        "country": "Espana",
+        "duration": 122,
+        "img_url": "https://pics.fom/kureyon_shin_chan_crayon_shin_chan-803709078-large.jpg"
     }
 ]
