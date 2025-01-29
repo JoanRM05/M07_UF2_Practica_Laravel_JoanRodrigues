@@ -7,6 +7,22 @@
 @stop
 
 @section('content')
+
+    <style>
+        .error-message {
+            background-color: #ffcccc;
+            color: #cc0000;
+            padding: 10px;
+            border: 1px solid #cc0000;
+            border-radius: 5px;
+            text-align: center;
+            width: fit-content;
+            margin: 10px auto;
+            opacity: 1;
+            transition: opacity 1s ease-in-out;
+        }
+    </style>
+
     <div class="col">
         <h1 class="mt-4">Lista de Peliculas</h1>
         <ul>
@@ -16,7 +32,7 @@
             <li><a href="/filmout/filmsGenre">Pelis Filtradas por Genero</a></li>
             <li><a href="/filmout/filmsYear">Pelis Filtradas por Año</a></li>
             <li><a href="/filmout/sortFilms">Pelis Ordenadas de manera descendente (Por Año)</a></li>
-            <li><a href="/filmout/countFilms">Contador de numero total de Peliculas</a></li>
+            <li><a href="/filmin/countFilms">Contador de numero total de Peliculas</a></li>
         </ul>
     </div>
     <div class="col">
@@ -33,6 +49,18 @@
         </form>
     </div>
 @stop
+
+@if($errors->has('error'))
+    <div class="error-message">
+        {{$errors->first('error')}}
+    </div>
+@endif 
+
+@if(isset($status))
+    <div class="error-message">
+        {{ $status }}
+    </div>
+@endif
 
 @section('footer')
     @parent()

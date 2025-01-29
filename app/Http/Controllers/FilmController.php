@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class FilmController extends Controller
@@ -145,5 +147,52 @@ class FilmController extends Controller
 
         return view("films.count", ["count" => $films_counted, "title" => $title]);
      } 
+
+     public function isFilm($name){
+
+        $films = FilmController::readFilms();
+        foreach ($films as $film) {
+            if ($film['name'] === $name){
+                return true;
+            }
+        }
+
+        return false;
+
+     }
+
+
+     public function createFilm(Request $request){
+
+        $title = "Pelicula Añadida";
+
+        $nombre = $request->input('nombre');
+        $año = $request->input('año');
+        $genero = $request->input('genero');
+        $pais = $request->input('pais');
+        $duracion = $request->input('duracion');
+        $url = $request->input('url');
+
+        $new_film = ["name" => $nombre, "year" => (int)$año, "genre" => $genero, "country" => $pais, "duration" => (int)$duracion, "img_url" => $url];
+
+        if ($this->isFilm($nombre)){
+            return redirect('/')->withErrors(["error" => "El nombre introducido ya pertenece a una pelicula"]);
+        }
+
+        $jsonString = file_get_contents('../storage/app/public/films.json');
+        $data = json_decode($jsonString, true);
+
+        array_push($data, $new_film);
+
+        $json = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+
+        file_put_contents('../storage/app/public/films.json', $json);
+
+        $films = FilmController::readFilms();
+
+        return view("films.list", ["films" => $films, "title" => $title]);
+
+
+     }
 
 }
