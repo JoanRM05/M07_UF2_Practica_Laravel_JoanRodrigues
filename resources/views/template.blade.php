@@ -8,6 +8,7 @@
     
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
     <style>
 
         html, body {
@@ -58,7 +59,54 @@
             align-items: center;      
             
         }
+
+        table {
+        width: 80%;
+        border-collapse: collapse;
+        background: rgba(0, 0, 0, 0.8); 
+        color: white;
+        font-size: 18px;
+        text-align: center;
+        margin-top: 20px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+        }
+        
+        th, td {
+            padding: 12px;
+            border: 1px solid #FFD700; 
+        }
+
+        th {
+            background: #FF4500; 
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        tr:nth-child(even) {
+            background: rgba(255, 255, 255, 0.1); 
+        }
+
+        tr:hover {
+            background: rgba(255, 255, 255, 0.2); 
+        }
+
+        img {
+            border-radius: 8px;
+            border: 2px solid #FFD700; 
+        }
+
+        div[align="center"] {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
     </style>
+    
 </head>
 <body>
 

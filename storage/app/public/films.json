@@ -40,7 +40,7 @@
         "img_url": "https://pics.filmaffinity.com/As_bestas-275688233-large.jpg"
     },
     {
-        "name": "Pepe",
+        "name": "Karlos Arguiñano",
         "year": 1222,
         "genre": "comedia",
         "country": "Espana",
@@ -48,27 +48,19 @@
         "img_url": "https://pics.filmaffinity.com/kureyon_shin_chan_crayon_shin_chan-803709078-large.jpg"
     },
     {
-        "name": "Polete",
-        "year": 1222,
+        "name": "Jose",
+        "year": 2000,
         "genre": "comedia",
-        "country": "Espana",
-        "duration": 122,
-        "img_url": "https://pics.filmaffinity.com/kureyon_shin_chan_crayon_shin_chan-803709078-large.jpg"
+        "country": "Japon",
+        "duration": 200,
+        "img_url": "https://pics.filmaffinity.com/kureyon_shinchan_bakuhatsu_onsen_wakuwaku_daikessen-165484922-msmall.jpg"
     },
     {
-        "name": "pepitoclavo",
-        "year": 123,
-        "genre": "comedia",
-        "country": "espana",
+        "name": "Sinchan Mal url4",
+        "year": 1220,
+        "genre": "risa",
+        "country": "Japon",
         "duration": 122,
         "img_url": "https://pics.filmaffinity.com/kureyon_shin_chan_crayon_shin_chan-803709078-large.jpg"
-    },
-    {
-        "name": "dsfsfdsfg",
-        "year": 1233,
-        "genre": "comedia",
-        "country": "Espana",
-        "duration": 122,
-        "img_url": "https://pics.fom/kureyon_shin_chan_crayon_shin_chan-803709078-large.jpg"
     }
 ]
