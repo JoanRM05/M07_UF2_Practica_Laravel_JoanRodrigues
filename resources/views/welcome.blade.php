@@ -64,19 +64,29 @@
     </style>
 
 <div class="container mt-5">
-    <div class="row justify-content-center">
+    <div class="row justify-content-between">
 
         <div class="col-md-5 contenedor">
-            <h2 class="text-warning">Lista de Películas</h2>
-            <ul class="list-group list-group-flush" style="align-items: center">
-                <li class="list-group-item"><a href=/filmout/oldFilms>🎞️ Pelis antiguas</a></li>
-                <li class="list-group-item"><a href=/filmout/newFilms>🎬 Pelis nuevas</a></li>
-                <li class="list-group-item"><a href=/filmout/films>📽️ Todas las Pelis</a></li>
-                <li class="list-group-item"><a href="/filmout/filmsGenre">🔍 Filtrar por Género</a></li>
-                <li class="list-group-item"><a href="/filmout/filmsYear">📅 Filtrar por Año</a></li>
-                <li class="list-group-item"><a href="/filmout/sortFilms">⬇️ Ordenar por Año (DESC)</a></li>
-                <li class="list-group-item"><a href="/filmout/countFilms">🔢 Contador total de Pelis</a></li>
-            </ul>
+            <div>
+                <h2 class="text-warning">Películas</h2>
+                <ul class="list-group list-group-flush" style="align-items: center">
+                    <li class="list-group-item"><a href=/filmout/oldFilms>🎞️ Pelis antiguas</a></li>
+                    <li class="list-group-item"><a href=/filmout/newFilms>🎬 Pelis nuevas</a></li>
+                    <li class="list-group-item"><a href=/filmout/films>📽️ Todas las Pelis</a></li>
+                    <li class="list-group-item"><a href="/filmout/filmsGenre">🔍 Filtrar por Género</a></li>
+                    <li class="list-group-item"><a href="/filmout/filmsYear">📅 Filtrar por Año</a></li>
+                    <li class="list-group-item"><a href="/filmout/sortFilms">⬇️ Ordenar por Año (DESC)</a></li>
+                    <li class="list-group-item"><a href="/filmout/countFilms">🔢 Contador total de Pelis</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h2 class="text-warning">Actores</h2>
+                <ul class="list-group list-group-flush" style="align-items: center">
+                    <li class="list-group-item"><a href=/actorout/actors>🎞️ Todos los Actores</a></li>
+                </ul>
+            </div>
+            
         </div>
 
         <div class="col-md-5 contenedor">
