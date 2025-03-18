@@ -64,7 +64,7 @@
     </style>
 
 <div class="container mt-5">
-    <div class="row justify-content-between">
+    <div class="row justify-content-center">
 
         <div class="col-md-5 contenedor">
             <div>
@@ -77,27 +77,6 @@
                     <li class="list-group-item"><a href="/filmout/filmsYear">📅 Filtrar por Año</a></li>
                     <li class="list-group-item"><a href="/filmout/sortFilms">⬇️ Ordenar por Año (DESC)</a></li>
                     <li class="list-group-item"><a href="/filmout/countFilms">🔢 Contador total de Pelis</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h2 class="text-warning">Actores</h2>
-                <ul class="list-group list-group-flush" style="align-items: center">
-                    <li class="list-group-item"><a href=/actorout/actors>🎞️ Todos los Actores</a></li>
-                    <li class="list-group-item"><a href="/actorout/countActors">🔢 Contador total de Actores</a></li>
-                    <form action="{{route('listActorsByDecade')}}" method="GET" enctype="multipart/form-data" class="mt-2">
-                        @csrf
-                        <div class="mb-3">
-                            <select name="year">
-                                <option value="1980">1980 to 1989</option>
-                                <option value="1990">1990 to 1999</option>
-                                <option value="2000">2000 to 2009</option>
-                                <option value="2010">2010 to 2019</option>
-                                <option value="2020">2020 to 2029</option>
-                            </select>
-                            <button type="submit" class="btn btn-enviar w-20">📤 Enviar</button>
-                        </div>
-                    </form>
                 </ul>
             </div>
             
