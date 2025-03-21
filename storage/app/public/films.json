@@ -62,5 +62,13 @@
         "country": "Japon",
         "duration": 122,
         "img_url": "https://pics.filmaffinity.com/kureyon_shin_chan_crayon_shin_chan-803709078-large.jpg"
+    },
+    {
+        "name": "Joan Lima",
+        "year": 1953,
+        "genre": "comedia",
+        "country": "Uganda",
+        "duration": 120,
+        "img_url": "https://pics.filmaffinity.com/kureyon_shin_chan_crayon_shin_chan-803709078-large.jpg"
     }
 ]

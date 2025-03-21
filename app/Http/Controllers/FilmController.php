@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class FilmController extends Controller
@@ -13,7 +14,15 @@ class FilmController extends Controller
      */
     public static function readFilms(): array {
         $films = Storage::json('/public/films.json');
-        return $films;
+        $dbfilms =  DB::table("films")->get()->toArray();
+
+        $filmsarray = array_map(function ($film) {
+            return (array) $film;
+        }, $dbfilms);
+
+        $totalFilms = array_merge($films, $filmsarray);
+
+        return $totalFilms;
     }
     /**
      * List films older than input year 
@@ -175,21 +184,30 @@ class FilmController extends Controller
 
         $new_film = ["name" => $nombre, "year" => (int)$año, "genre" => $genero, "country" => $pais, "duration" => (int)$duracion, "img_url" => $url];
 
-        if ($this->isFilm($nombre)){
-            return redirect('/')->withErrors(["error" => "El nombre introducido ya pertenece a una pelicula"]);
+        if(env('STORAGE') == "JSON"){
+
+            if ($this->isFilm($nombre)){
+                return redirect('/')->withErrors(["error" => "El nombre introducido ya pertenece a una pelicula"]);
+            }
+
+            $jsonString = file_get_contents('../storage/app/public/films.json');
+            $data = json_decode($jsonString, true);
+    
+            array_push($data, $new_film);
+    
+            $json = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+    
+            file_put_contents('../storage/app/public/films.json', $json);
+    
+
+        } else if (env('STORAGE') == "SQL"){
+
+            DB::table('films')->insert($new_film);
+
         }
 
-        $jsonString = file_get_contents('../storage/app/public/films.json');
-        $data = json_decode($jsonString, true);
-
-        array_push($data, $new_film);
-
-        $json = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
-
-        file_put_contents('../storage/app/public/films.json', $json);
-
         $films = FilmController::readFilms();
-
+    
         return view("films.list", ["films" => $films, "title" => $title]);
 
 
