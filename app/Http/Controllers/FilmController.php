@@ -184,11 +184,11 @@ class FilmController extends Controller
 
         $new_film = ["name" => $nombre, "year" => (int)$año, "genre" => $genero, "country" => $pais, "duration" => (int)$duracion, "img_url" => $url];
 
-        if(env('STORAGE') == "JSON"){
+        if ($this->isFilm($nombre)){
+            return redirect('/')->withErrors(["error" => "El nombre introducido ya pertenece a una pelicula"]);
+        }
 
-            if ($this->isFilm($nombre)){
-                return redirect('/')->withErrors(["error" => "El nombre introducido ya pertenece a una pelicula"]);
-            }
+        if(env('STORAGE') == "JSON"){
 
             $jsonString = file_get_contents('../storage/app/public/films.json');
             $data = json_decode($jsonString, true);
