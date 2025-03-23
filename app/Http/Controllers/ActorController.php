@@ -51,5 +51,24 @@ class ActorController extends Controller{
         return response()->json(['action' => 'delete', 'status' => $result == 1 ? 'true' : 'false']);
     }   
 
+    public function update(Request $request, $id){
+        $validated = $request->validate([
+            'name' => 'string|max:30',
+            'surname' => 'string|max:30',
+            'birthdate' => 'date',
+            'country' => 'string|max:50',
+            'img_url' => 'string|max:255'
+        ]);
+
+        if (empty($validated)) {
+            return response()->json(['action' => 'update', 'status' => 'false']);
+        }
+
+        $data = array_merge($validated, ['updated_at' => now()]);
+
+        $affected = DB::table('actors')->where('id', $id)->update($data);
+        
+        return response()->json(['action' => 'update', 'status' => $affected == 1 ? 'true' : 'false']);
+    }
 
 }
