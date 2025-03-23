@@ -213,4 +213,12 @@ class FilmController extends Controller
 
      }
 
+     public function index(){
+
+        $films = FilmController::readFilms();
+
+        return response()->json(['films' => $films], 200, [], JSON_PRETTY_PRINT);
+
+     }
+
 }
