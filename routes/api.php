@@ -20,8 +20,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::delete('/delactors/{id}', [ActorController::class, 'destroy']);
+Route::delete('/actors/{id?}', [ActorController::class, 'destroy']);
 
 Route::get('/films', [FilmController::class, 'index']);
 
-Route::patch('/updateactors/{id}', [ActorController::class, 'update']);
+Route::patch('/actors/{id}', [ActorController::class, 'update']);
