@@ -22,6 +22,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::delete('/actors/{id?}', [ActorController::class, 'destroy']);
 
+Route::patch('/actors/{id}', [ActorController::class, 'update']);
+
+Route::get('/actors', [FilmController::class, 'showOne']);
+
+/* Route::get('/films', [FilmController::class, 'index']); */
+
 Route::get('/films', [FilmController::class, 'index']);
 
-Route::patch('/actors/{id}', [ActorController::class, 'update']);
