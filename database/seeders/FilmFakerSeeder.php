@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Film;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -14,11 +15,13 @@ class FilmFakerSeeder extends Seeder
      */
     public function run(): void
     {
-       
-        $faker = Faker::create();
 
-        for ($i=0; $i < 10; $i++) { 
-            
+        Film::factory()->count(10)->create();
+
+        /* $faker = Faker::create();
+
+        for ($i = 0; $i < 10; $i++) {
+
             DB::table("films")->insert([
                 'name' => $faker->firstName(),
                 'year' => $faker->year(),
@@ -29,8 +32,6 @@ class FilmFakerSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now()
             ]);
-
-        }
-
+        } */
     }
 }

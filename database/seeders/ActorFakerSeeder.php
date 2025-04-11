@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Actor;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -16,10 +17,12 @@ class ActorFakerSeeder extends Seeder
     public function run(): void
     {
 
-        $faker = Faker::create();
+        Actor::factory()->count(10)->create();
 
-        for ($i=0; $i < 10; $i++) { 
-            
+        /* $faker = Faker::create();
+
+        for ($i = 0; $i < 10; $i++) {
+
             DB::table("actors")->insert([
                 'name' => $faker->firstName(),
                 'surname' => $faker->lastName(),
@@ -29,7 +32,6 @@ class ActorFakerSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now()
             ]);
-
-        }
+        } */
     }
 }
