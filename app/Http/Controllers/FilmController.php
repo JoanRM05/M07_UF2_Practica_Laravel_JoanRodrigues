@@ -188,7 +188,7 @@ class FilmController extends Controller
         $url = $request->input('url');
 
         $new_film = ["name" => $nombre, "year" => (int)$año, "genre" => $genero, "country" => $pais, "duration" => (int)$duracion, "img_url" => $url];
-        
+
         if ($this->isFilm($nombre)) {
             return redirect('/')->withErrors(["error" => "El nombre introducido ya pertenece a una pelicula"]);
         }
@@ -203,7 +203,6 @@ class FilmController extends Controller
             $json = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 
             file_put_contents('../storage/app/public/films.json', $json);
-
         } else if (env('STORAGE') == "SQL") {
 
             Film::create($new_film);
@@ -214,11 +213,26 @@ class FilmController extends Controller
         return view("films.list", ["films" => $films, "title" => $title]);
     }
 
+    /* Anteriormente se usaba para leer el json y la bbdd y mostrarlo a traves de la api (sin el uso de Eloquent) (Actividad Extra) 
     public function index()
     {
 
         $films = FilmController::readFilms();
 
         return response()->json(['films' => $films], 200, [], JSON_PRETTY_PRINT);
+    } */
+
+    public function index()
+    {
+        $filmsWithActors = Film::with('actors')->get();
+        
+        /* $films = Film::all();
+
+        $filmsWithActors = $films->map(function ($film) {
+            $film->actors = $film->Actors()->get();
+            return $film;
+        }); */
+
+        return response()->json(['films' => $filmsWithActors], 200, [], JSON_PRETTY_PRINT);
     }
 }
