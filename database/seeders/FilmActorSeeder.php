@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Actor;
+use App\Models\Film;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -13,7 +15,24 @@ class FilmActorSeeder extends Seeder
      */
     public function run(): void
     {
-        $filmIds = DB::table('films')->pluck('id')->toArray();
+
+        $films = Film::all();
+        $actors = Actor::all();
+
+        if ($films->isEmpty() || $actors->isEmpty()) {
+            return;
+        }
+
+        for ($i = 0; $i < 10; $i++) {
+            $film = $films->random();
+            $actor = $actors->random();
+
+            if (!$film->Actors()->where('actor_id', $actor->id)->exists()) {
+                $film->Actors()->attach($actor->id);
+            }
+        }
+
+        /* $filmIds = DB::table('films')->pluck('id')->toArray();
         $actorIds = DB::table('actors')->pluck('id')->toArray();
 
         if (empty($filmIds) || empty($actorIds)){
@@ -29,6 +48,6 @@ class FilmActorSeeder extends Seeder
                 'updated_at' => now()
             ]);
 
-        }
+        } */
     }
 }
