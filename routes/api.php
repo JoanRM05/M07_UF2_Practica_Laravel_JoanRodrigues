@@ -24,7 +24,7 @@ Route::delete('/actors/{id?}', [ActorController::class, 'destroy']);
 
 Route::patch('/actors/{id}', [ActorController::class, 'update']);
 
-Route::get('/actors', [FilmController::class, 'showOne']);
+Route::get('/actors', [ActorController::class, 'index']);
 
 /* Route::get('/films', [FilmController::class, 'index']); */
 

@@ -97,6 +97,12 @@ class ActorController extends Controller
         return response()->json(['action' => 'update', 'status' => $affected == 1 ? 'true' : 'false']);
     }
 
-    
+    public function index()
+    {
+        $actorsWithFilms = Actor::with('films')->get();
 
+
+
+        return response()->json(['actors' => $actorsWithFilms], 200, [], JSON_PRETTY_PRINT);
+    }
 }

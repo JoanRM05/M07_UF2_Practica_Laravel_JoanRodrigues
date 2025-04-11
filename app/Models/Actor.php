@@ -24,4 +24,9 @@ class Actor extends Model
         'country' => 'string',
         'img_url' => 'string'
     ];
+
+    public function Films()
+    {
+        return $this->belongsToMany(Film::class);
+    }
 }
